@@ -37,7 +37,7 @@ const resolvers = {
                 const updatedUser = await User.findByIdAndUpdate(
                     { _id: context.user._id},
                     { $addToSet: {
-                        authors, title, description, bookId, image, link
+                        savedBooks: { authors, title, description, bookId, image, link }
                     }},
                     {
                         new: true,
