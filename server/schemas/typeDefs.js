@@ -3,14 +3,14 @@ const typeDefs = `
         _id: ID
         username: String
         email: String
-        bookCount: String
+        bookCount: Int
         savedBooks: [Book]!
     }
 
     type Book {
-        _id: ID
-        authors: String
         bookId: String
+        authors: [String]
+        description: String
         image: String
         link: String
         title: String
@@ -28,7 +28,7 @@ const typeDefs = `
     type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
-        saveBook(): User
+        saveBook(authors: [String!], title: String!, description: String!, bookId: String!, image: String, link: String): User
         removeBook(bookId: String!): User
     }
 `
