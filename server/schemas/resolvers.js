@@ -23,7 +23,7 @@ const resolvers = {
                 throw AuthenticationError
             }
 
-            const isCorrectPassword = await user.isCorrectPassword(password)
+            const isCorrectPassword = user.isCorrectPassword(password)
 
             if (!isCorrectPassword) {
                 throw AuthenticationError
