@@ -28,8 +28,7 @@
 * Bcrypt
 
 ## Application Page
-* ![]()
-* ![]()
+* ![application-page](./client/src/assets/images/application-page.png)
 
 ## Links
 * [Github Repo Link](https://github.com/veyselarslan12/book-search-engine-mern)
