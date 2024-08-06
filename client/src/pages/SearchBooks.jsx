@@ -70,13 +70,13 @@ const SearchBooks = () => {
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-
+    console.log(token)
     if (!token) {
       return false;
     }
-
+    console.log(bookToSave)
     try {
-      const { data } = await saveBook({
+      const { data, error } = await saveBook({
         variables: { 
           authors: bookToSave.authors,
           title: bookToSave.title,
@@ -86,10 +86,7 @@ const SearchBooks = () => {
           link: bookToSave.link,
         },
       });
-
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
+      console.log(error)
 
       // if book successfully saves to user's account, save book id to state
       setSavedBookIds([...savedBookIds, bookToSave.bookId]);

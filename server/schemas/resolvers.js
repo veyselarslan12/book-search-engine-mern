@@ -33,6 +33,7 @@ const resolvers = {
             return { token, user }
         },
         saveBook: async (parent, { authors, title, description, bookId, image, link }, context) => {
+            console.log(context.user)
             if (context.user) {
                 const updatedUser = await User.findByIdAndUpdate(
                     { _id: context.user._id},
@@ -47,6 +48,7 @@ const resolvers = {
                 return updatedUser
             }
             throw AuthenticationError
+
         },
         removeBook: async (parent, { bookId }, context) => {
             if (context.user) {

@@ -25,13 +25,14 @@ module.exports = {
     if (req.headers.authorization) {
       token = token.split(' ').pop().trim();
     }
-
+    
     if (!token) {
       return req
     }
 
     // verify token and get user data out of it
     try {
+      console.log(jwt.verify(token, secret, { maxAge: expiration }))
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
     } catch(error) {
